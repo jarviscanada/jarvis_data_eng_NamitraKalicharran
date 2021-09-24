@@ -44,8 +44,8 @@ case $cmd in
         exit $? 
     ;;
 
-    # In case someone types in neither create|start|stop
-    *)
+
+   *)
         echo "Illegal command"
 	echo 'Commands: start|stop|create'
 	exit 1
