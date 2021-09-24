@@ -17,12 +17,12 @@ container_status=$? # grabs the output from the line above
 case $cmd in
     # create operation
     create)
-	if [ $container_status -eq 0]; then
+	if [ $container_status -eq 0 ]; then
             echo 'Container already exists'
 	    exit 1
 	fi
 
-	if [ $# -ne 3]; then
+	if [ $# -ne 3 ]; then
 	    echo 'Create requires username and password'
 	    exit 1
 	fi
@@ -34,7 +34,7 @@ case $cmd in
 
     # start|stop operation
     start|stop)
-        if [$container_status -ne 0]; then
+        if [ $container_status -ne 0 ]; then
 	    echo "Container has not been created"
 	    exit 1
 	fi
