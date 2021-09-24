@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/sh
 
 cmd=$1
 db_username=$2
@@ -7,13 +7,17 @@ db_password=$3
 # starting docker or showing status
 sudo systemctl status docker || systemctl start docker
 
+# grab latest version of postgres
+docker pull postgres
+
 docker container inspect jrvs-psql
 container_status=$? # grabs the output from the line above
 
 # Create the start|stop|create operations
 case $cmd in
+    # create operation
     create)
-	if [ $container_status == 0]; then
+	if [ $container_status -eq 0]; then
             echo 'Container already exists'
 	    exit 1
 	fi
@@ -28,14 +32,19 @@ case $cmd in
 	exit $?
     ;;
 
+    # start|stop operation
     start|stop)
-        if [$container_status ...
-        ...
+        if [$container_status -ne 0]; then
+	    echo "Container has not been created"
+	    exit 1
+	fi
 
+	# start or stop the container
         docker container $cmd jrvs_psql
         exit $? 
     ;;
 
+    # In case someone types in neither create|start|stop
     *)
         echo "Illegal command"
 	echo 'Commands: start|stop|create'
