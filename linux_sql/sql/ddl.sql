@@ -1,5 +1,5 @@
 -- Connect to the host agent database
-\c host_agent
+\c host_agent;
 
 -- Create host_usage table
 CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE;
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE;
 
 	PRIMARY KEY (id),
 	UNIQUE(hostname)
-    )
+    );
 
 -- Create host_info table
 CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE;
@@ -31,4 +31,4 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE;
 
 	-- host_id is a foreign key for id in host_info
 	FOREIGN KEY (host_id) REFERENCES host_info(id)
-    )
+    );
