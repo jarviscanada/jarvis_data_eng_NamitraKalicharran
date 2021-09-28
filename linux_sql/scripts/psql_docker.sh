@@ -10,7 +10,7 @@ sudo systemctl status docker || systemctl start docker
 # grab latest version of postgres
 docker pull postgres
 
-docker container inspect jrvs-psql
+docker container inspect jrvs_psql
 container_status=$? # grabs the output from the line above
 
 # Create the start|stop|create operations
