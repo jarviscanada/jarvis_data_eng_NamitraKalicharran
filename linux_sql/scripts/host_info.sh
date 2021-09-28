@@ -36,15 +36,15 @@ insert_stmt="INSERT INTO host_info (
 					timestamp
 				    )
 			VALUES 	    (
-					$hostname,
-					$cpu_number,
-					$cpu_architecture,
-					$cpu_architecture,
-					$cpu_model,
-					$cpu_mhz,
-					$L2_cache,
-					$total_mem,
-					$timestamp)"
+					'$hostname',
+					'$cpu_number',
+					'$cpu_architecture',
+					'$cpu_architecture',
+					'$cpu_model',
+					'$cpu_mhz',
+					'$L2_cache',
+					'$total_mem',
+					'$timestamp');"
 
 # Inject data into psql database
 export PGPASSWORD=$psql_password
