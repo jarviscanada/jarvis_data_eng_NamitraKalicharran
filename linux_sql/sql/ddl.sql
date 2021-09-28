@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info
 	memory_free		INTEGER NOT NULL,
 	cpu_idle		INTEGER NOT NULL,
 	cpu_kernel		INTEGER NOT NULL,
-	disk_io			INTEGER NOT NULL
+	disk_io			INTEGER NOT NULL,
 	disk_available		INTEGER NOT NULL,
 
 	-- host_id is a foreign key for id in host_info
