@@ -6,7 +6,7 @@ db_name=$3
 psql_user=$4
 psql_password=$5
 
-if [ $# -ne 5 ] then
+if [ $# -ne 5 ]; then
     echo "Invalid number of Arguments"
     exit 1
 fi
