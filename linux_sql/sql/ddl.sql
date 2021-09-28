@@ -2,7 +2,7 @@
 \c host_agent;
 
 -- Create host_usage table
-CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE;
+CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE
     (
 	id			SERIAL NOT NULL,
 	hostname		VARCHAR NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE;
     );
 
 -- Create host_info table
-CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE;
+CREATE TABLE IF NOT EXISTS PUBLIC.host_info CASCADE
     (
 	"timestamp"		TIMESTAMP NOT NULL,
 	host_id			SERIAL NOT NULL,
