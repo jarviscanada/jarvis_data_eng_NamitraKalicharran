@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info
     );
 
 -- Create host_info table
-CREATE TABLE IF NOT EXISTS PUBLIC.host_info
+CREATE TABLE IF NOT EXISTS PUBLIC.host_usage
     (
 	"timestamp"		TIMESTAMP NOT NULL,
 	host_id			SERIAL NOT NULL,
