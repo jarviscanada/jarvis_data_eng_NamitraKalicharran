@@ -22,9 +22,10 @@ cpu_idle=$(echo "$vmstat_out" | awk '{print $15}' | tail -n1 | xargs)
 cpu_kernel=$(echo "$vmstat_out" | awk '{print $14}' | tail -n1 | xargs)
 disk_io=$(vmstat -d | tail -1 | awk '{print $10}' | xargs)
 disk_available=$(df -BM | egrep '/dev/sda2' | awk '{print $4}' | grep -o "[0-9]\+" | xargs)
+timestamp=$(date -u +"%Y-%m-%d %H:%M:%S")
 
 # insert usage into PSQL database into host_usage table
-insert_stmt="INSERT INTO host_usage(
+insert_stmt="INSERT INTO host_usage (
 					timestamp,
 					host_id,
 					memory_free,
@@ -33,15 +34,15 @@ insert_stmt="INSERT INTO host_usage(
 					disk_io,
 					disk_available
 				    )
-		          SELECT    (
-					$timestamp,
+		          SELECT
+					'$timestamp',
 					host_info.id,
-					$memory_free,
-					$cpu_idle,
-					$cpu_kernel,
-					$disk_io,
-					$disk_available)
-			  FROM host_info WHERE host_info.id=$hostname"
+					'$memory_free',
+					'$cpu_idle',
+					'$cpu_kernel',
+					'$disk_io',
+					'$disk_available'
+			  FROM host_info WHERE host_info.hostname='$hostname';"
 
 # save env var for psql command
 export PGPASSWORD=$psql_password

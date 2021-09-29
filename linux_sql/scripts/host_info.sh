@@ -18,9 +18,9 @@ hostname=$(hostname -f)
 # grab each value for our host_info table
 cpu_number=$(echo "$lscpu_out" | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)
 cpu_architecture=$(echo "$lscpu_out" | egrep "^Architecture:" | awk '{print $2}' | xargs)
-cpu_model=$(echo "lscpu_out" | egrep "^Model name:" | awk --field-separator ':' '{print $2}' | xargs)
-cpu_mhz=$(echo "lscpu_out" | egrep "CPU MHz:" | awk '{print $3}' | xargs)
-L2_cache=$(echo "lscpu_out" | egrep "L2 cache:" | awk '{print $3}' | grep -o '[0-9]\+' | xargs)
+cpu_model=$(echo "$lscpu_out" | egrep "^Model name:" | awk --field-separator ':' '{print $2}' | xargs)
+cpu_mhz=$(echo "$lscpu_out" | egrep "CPU MHz:" | awk '{print $3}' | xargs)
+L2_cache=$(echo "$lscpu_out" | egrep "L2 cache:" | awk '{print $3}' | grep -o '[0-9]\+' | xargs)
 total_mem=$(grep "^MemTotal" /proc/meminfo | awk '{print $2}')
 timestamp=$(date -u +"%Y-%m-%d %H:%M:%S")
 
