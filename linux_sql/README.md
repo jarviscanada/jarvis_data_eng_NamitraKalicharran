@@ -31,8 +31,15 @@ linux_sql
 
 ### Host Info Table
 
-| id | hostname | cpu\_number | cpu\_architecture | cpu\_model | cpu\_mhz | L2\_cache | total\_mem | timestamp |
-| -- | -------- | ----------- | ----------------- | ---------- | -------- | --------- | ---------- | --------- |
+| id | Postgres ID |
+| hostname | Name of node |
+| cpu\_number | Node CPU cores |
+|  cpu\_architecture | Node CPU architecture (e.g. x86) |
+| cpu\_model | Node CPU model |
+| cpu\_mhz | Node CPU clock speed |
+| L2\_cache | Node CPU L2 cache |
+| total\_mem | Node total RAM |
+| timestamp | Date hardware info captured |
 
 ### Host Usage Table
 
