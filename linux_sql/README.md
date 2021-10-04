@@ -34,7 +34,7 @@ linux_sql
 | id | Postgres ID |
 | hostname | Name of node |
 | cpu\_number | Node CPU cores |
-|  cpu\_architecture | Node CPU architecture (e.g. x86) |
+| cpu\_architecture | Node CPU architecture (e.g. x86) |
 | cpu\_model | Node CPU model |
 | cpu\_mhz | Node CPU clock speed |
 | L2\_cache | Node CPU L2 cache |
