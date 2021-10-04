@@ -29,8 +29,18 @@ linux_sql
 ```
 ## Database Modelling
 
+### Host Info Table
+
+| id | hostname | cpu\_number | cpu\_architecture | cpu\_model | cpu\_mhz | L2\_cache | total\_mem | timestamp |
+| -- | -------- | ----------- | ----------------- | ---------- | -------- | --------- | ---------- | --------- |
+
+### Host Usage Table
+
+| timestamp | host\_id | memory\_free | cpu\_idle | cpu\_kernel | disk\_io | disk\_available |
+| --------- | -------- | ------------ | --------- | ----------- | -------- | --------------- |
+
 # Test
 
 # Deployment
 
-#Improvements
+# Improvements
