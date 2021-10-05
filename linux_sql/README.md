@@ -13,7 +13,7 @@ This is a monitoring tool for the Jarvis Linux Cluster Administration (LCA) team
 This tool was implemented using bash scripts and the database was containerized in Docker
 
 ## Architecture
-![](assets/Linux_SQL:.png)
+![](./assets/Linux_SQL.png)
 ## Scripts
 ```
 linux_sql
