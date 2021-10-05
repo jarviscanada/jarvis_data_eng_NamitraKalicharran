@@ -15,7 +15,24 @@ SELECT host_usage.host_id,
 		as avg_used_mem_percentage
 FROM host_info, host_usage
 WHERE host_usage.host_id = host_info.id
-ORDER BY host_usage.timestamp ASC
+ORDER BY host_usage.timestamp ASC;
 
 -- Detecting host failures
-SELECT 
+WITH grid AS (
+   -- Get time intervals to compare
+   SELECT start_time
+        , lead(start_time, 1, 'infinity') OVER (ORDER BY start_time) AS end_time
+   FROM  (
+      -- Get our host_usage time series
+      SELECT generate_series(min(timestamp), max(timestamp), interval '5 min') AS start_time
+      FROM   host_usage
+      ) sub
+   )
+-- Get the time of failure and number of records at that time
+SELECT start_time, count(e.ts) AS events
+FROM   grid       g
+LEFT   JOIN event e ON e.ts >= g.start_time
+                   AND e.ts <  g.end_time
+WHERE events < 5
+GROUP  BY start_time
+ORDER  BY start_time; 
