@@ -31,6 +31,8 @@ linux_sql
 
 ### Host Info Table
 
+| column | description |
+| ------ | ----------- |
 | id | Postgres ID |
 | hostname | Name of node |
 | cpu\_number | Node CPU cores |
