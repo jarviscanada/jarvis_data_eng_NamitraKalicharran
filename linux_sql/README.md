@@ -45,11 +45,23 @@ linux_sql
 
 ### Host Usage Table
 
-| timestamp | host\_id | memory\_free | cpu\_idle | cpu\_kernel | disk\_io | disk\_available |
-| --------- | -------- | ------------ | --------- | ----------- | -------- | --------------- |
-
-# Test
+| column | description |
+| ------ | ----------- |
+| timestamp | Date/Time node usage was captured |
+| host\_id | Postgres ID of node machine (references Host Info id) |
+| memory\_free | The amount of RAM available to node |
+| cpu\_idle | The percent free processing power in node |
+| cpu\_kernel | Node OS kernel |
+| disk\_io | Node disk space |
+| disk\_available | Free disk space available |
 
 # Deployment
 
+- Run `psql_docker.sh start`
+- Run `host_info.sh`
+- Open crontab using `crontab -e`
+- add `* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log` to crontab 
+
 # Improvements
+- I would like to optimize my postgresql queries
+- I think that deployment could be smoother with more automation
