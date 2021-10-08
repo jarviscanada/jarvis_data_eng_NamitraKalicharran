@@ -26,6 +26,7 @@ skills:
   # At least 5 skills
   competent:
     - PySpark
+    - Docker
     - TensorFlow
     - MongoDB
     - Scikit-Learn
@@ -59,7 +60,7 @@ highlighted_projects:
     #URL is optional
     git_url: "https://devpost.com/software/cowculator-g0cwxm"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Developed a diet tracking progressive web app, using React, MongoDB and FastAPI, that helps users count the carbon footprint of each meal that they have eaten. Won best pitch at ClimateHack!"
+    description: "Developed a diet tracking progressive web app, using React, MongoDB and FastAPI, that helps users count the carbon footprint of each meal that they have eaten. The progressive web app was deployed on AWS Lamda and won best pitch at ClimateHack!"
   
   - name: "Machine Learning"
     git_url:
@@ -74,12 +75,12 @@ professional_experience:
     company: "Jarvis"
     duration: "2021-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
+    description: "Collaborated in Scrum team to develop monitoring software for Linux Cluster Administration Team."
   
   - title: "Data Science Intern"
     company: "Harvard University"
     duration: "2019"
-    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
+    description: "Implemented data pipeline in Spark for processing drug data. Workflow scheduling was managed using Luigi and the pipeline was tested against a subset of the dataset on a SLURM cluster. The pipeline was deployed on Harvard's HPC SLURM cluster."
 
 #List of edcuation
 education: 
