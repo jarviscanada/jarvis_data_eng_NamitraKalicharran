@@ -1,0 +1,101 @@
+# Preferred name (Characters only)
+name: "Namitra Kalicharran"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_NamitraKalicharran
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: My name is Namitra Kalicharran. I am a new graduate from the University of Waterloo where I studied Biology and minored in Computer Science. I have a strong passion for developing novel data infrastructures as demonstrated by my previous experience developing a variety of data pipelines for research labs in Canada and the US during my time in school.
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+# DO NOT mention skills that you don't want to work on in the future (e.g. MS office)
+skills:
+  # At least 5 skills
+  proficient:
+    - Python
+    - PyTorch
+    - Pandas
+    - Numpy
+    - JavaScript
+    - Java
+    - Linux/Bash
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Git
+  # At least 5 skills
+  competent:
+    - PySpark
+    - TensorFlow
+    - MongoDB
+    - Scikit-Learn
+    - Flask
+    - FastAPI
+    - NodeJS
+    - ExpressJS
+    - React
+  # At least 5 skills
+  familiar:
+    - Google Cloud 
+    - Amazon Web Services
+    - Django
+    - Kafka 
+    - Vue
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Linux Cluster Resource Monitoring App"
+    git_url: "/linux_sql"
+    # Please read the project description guideline carefully. Make sure you follow the simplified SDLC pattern. (t.ly/NlXQ)
+    # Please include the following keywords: CentOS, Bash/Shell, docker, RDBMS/SQL/Postgresql, crontab, data analytics
+    description: "This was a node monitoring program for the Linux Cluster Administration team which was developed in Bash and tested on CentOS 7 virtual machines. All the scripts were automated using crontab and the data was stored in a Docker containerized PostgresQL database which could later be queried for further data analytics."
+
+# List of personal or academic projects
+# Feel free to add more projects
+# Please read the project description guideline carefully. Make sure you follow the simplified SDLC pattern. (t.ly/NlXQ)
+highlighted_projects:
+    #project name
+  - name: "Cowculator"
+    #URL is optional
+    git_url: "https://devpost.com/software/cowculator-g0cwxm"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Developed a diet tracking progressive web app, using React, MongoDB and FastAPI, that helps users count the carbon footprint of each meal that they have eaten. Won best pitch at ClimateHack!"
+  
+  - name: "Machine Learning"
+    git_url:
+    description: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+
+#List of professional experience
+# Please read the project description guideline carefully. Make sure you follow the simplified SDLC pattern. (t.ly/NlXQ)
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2021-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
+  
+  - title: "Data Science Intern"
+    company: "Harvard University"
+    duration: "2019"
+    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
+
+#List of edcuation
+education: 
+  - school_name: "University of Waterloo"
+    duration: "2016-2020"
+    degree: "Honours Science"
+    department: "Faculty of Science"
+    # optional
+    awards_achievements: 
+      - "Bioinformatics Minor"
+      - "Computer Science Minor"
+      - "GPA: 3.7"
+
+#Optional section
+others:
+  - title: "Activities/Hobbies"
+    bullets:
+      - "Kendo player"
+      - "Coffee Brewing Enthusiast"
