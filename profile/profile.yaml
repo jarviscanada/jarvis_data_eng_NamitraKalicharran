@@ -49,7 +49,7 @@ jarvis_projects:
     git_url: "/linux_sql"
     # Please read the project description guideline carefully. Make sure you follow the simplified SDLC pattern. (t.ly/NlXQ)
     # Please include the following keywords: CentOS, Bash/Shell, docker, RDBMS/SQL/Postgresql, crontab, data analytics
-    description: "This was a node monitoring program for the Linux Cluster Administration team which was developed in Bash and tested on CentOS 7 virtual machines. All the scripts were automated using crontab and the data was stored in a Docker containerized PostgresQL database which could later be queried for further data analytics."
+    description: "Implemented cluster monitoring program for the Linux Cluster Administration team which was developed in Bash and tested on CentOS 7 virtual machines. All the scripts were automated using crontab and the data was stored in a Docker containerized PostgresQL database which could later be queried for further data analytics."
 
 # List of personal or academic projects
 # Feel free to add more projects
@@ -62,25 +62,25 @@ highlighted_projects:
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: "Developed a diet tracking progressive web app, using React, MongoDB and FastAPI, that helps users count the carbon footprint of each meal that they have eaten. The progressive web app was deployed on AWS Lamda and won best pitch at ClimateHack!"
   
-  - name: "Machine Learning"
-    git_url:
-    description: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+  - name: "Stock Price Prediction"
+    git_url: "github.com/NamitraKali/Stock-Price-Prediction"
+    description: "Designed and trained a Recurrent Neural Network in Keras to perform Supervised Regression to predict stock prices using technical indicators. Engineered data using Pandas and Numpy to calculate various technical indicators. Created train and testing splits to locally test model performance using scikit-learn."
 
 #List of professional experience
 # Please read the project description guideline carefully. Make sure you follow the simplified SDLC pattern. (t.ly/NlXQ)
 #The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
-  - title: "Software Developer"
+  - title: "Data Engineer"
     company: "Jarvis"
     duration: "2021-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Collaborated in Scrum team to develop monitoring software for Linux Cluster Administration Team."
+    description: "Collaborated in SCRUM teams across many teams at Jarvis. Developed cluster monitoring software for the Linux Cluster Admin team by creating bash scripts that were scheduled in crontab to send data to containerized Postgres database. Leading a SCRUM team of 3 other data engineers to work on JDBC connection and a custom grep app to be integrated into a trading platform."
   
   - title: "Data Science Intern"
     company: "Harvard University"
     duration: "2019"
-    description: "Implemented data pipeline in Spark for processing drug data. Workflow scheduling was managed using Luigi and the pipeline was tested against a subset of the dataset on a SLURM cluster. The pipeline was deployed on Harvard's HPC SLURM cluster."
+    description: "Implemented data pipeline in Spark for processing drug data. Workflow scheduling was managed using Luigi and the pipeline was tested against a subset of the dataset on a SLURM cluster. The pipeline was deployed on Harvard's HPC SLURM cluster. Pipeline resulted in 10x efficiency boost in processing."
 
 #List of edcuation
 education: 
