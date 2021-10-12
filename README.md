@@ -21,7 +21,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NamitraKal
 ## Highlighted Projects
 **Cowculator** [[Link](https://devpost.com/software/cowculator-g0cwxm)]: Developed a diet tracking progressive web app, using React, MongoDB and FastAPI, that helps users count the carbon footprint of each meal that they have eaten. The progressive web app was deployed on AWS Lamda and won best pitch at ClimateHack!
 
-**Stock Price Prediction** [[GitHub](github.com/NamitraKali/Stock-Price-Prediction)]: Designed and trained a Recurrent Neural Network in Keras to perform Supervised Regression to predict stock prices using technical indicators. Engineered data using Pandas and Numpy to calculate various technical indicators. Created train and testing splits to locally test model performance using scikit-learn.
+**Stock Price Prediction** [[Link](github.com/NamitraKali/Stock-Price-Prediction)]: Designed and trained a Recurrent Neural Network in Keras to perform Supervised Regression to predict stock prices using technical indicators. Engineered data using Pandas and Numpy to calculate various technical indicators. Created train and testing splits to locally test model performance using scikit-learn.
 
 
 ## Professional Experiences
