@@ -58,8 +58,6 @@ public class JavaGrepImp implements JavaGrep {
             throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
         }
 
-        BasicConfigurator.configure();
-
         JavaGrepImp javaGrepImp = new JavaGrepImp();
         javaGrepImp.setRegex(args[0]);
         javaGrepImp.setRootPath(args[1]);
@@ -74,11 +72,12 @@ public class JavaGrepImp implements JavaGrep {
 
     @Override
     public void process() throws IOException {
-        List<String> matchedLines = new ArrayList<String>();
+        ArrayList<String> matchedLines = new ArrayList<String>();
 
         for (File file : listFiles(rootPath)) {
             // Iterate through each file and find matching lines
-            matchedLines.addAll(readLines(file));
+            List<String> lines = readLines(file);
+            matchedLines.addAll(lines);
         };
 
         writeToFile(matchedLines);
@@ -94,66 +93,23 @@ public class JavaGrepImp implements JavaGrep {
 
     @Override
     public List<String> readLines(File inputFile) {
-        FileReader fileReader;
         try {
-            fileReader = new FileReader(inputFile);
-        } catch (FileNotFoundException ex) {
-            logger.error("Cannot read from " + inputFile, ex);
-            return null;
-        }
-        
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+            List<String> lines = new ArrayList<String>();
+            BufferedReader br = new BufferedReader(new FileReader(inputFile));
 
-        List<String> lines = new ArrayList<String>();
-
-        // Try and read first line from input file
-        // resistant to file deletion mid call
-        String line;
-        try {
-            line = bufferedReader.readLine();
-        } catch (IOException ex) {
-            logger.error("Error reading line from input file", ex);
-
-            try {
-                bufferedReader.close();
-            } catch (IOException ex2) {
-                logger.error("Cannot find from " + inputFile, ex2);
-            }
-            return null;
-        }
-
-        // iterate through each line in input file
-        while (line != null) {
-            // Check if line contains matching regex
-            // add to lines list
-            if (containsPattern(line)) {
-                lines.add(line);
-            }
-            
-            // Try and read next line
-            // resistant to file deletion mid call
-            try {
-                line = bufferedReader.readLine();
-            } catch (IOException ex) {
-                logger.error("Error reading line from input file", ex);
-
-                try {
-                    bufferedReader.close();
-                } catch (IOException ex2) {
-                    logger.error("Cannot find from " + inputFile, ex2);
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (containsPattern(line)) {
+                    lines.add(line);
                 }
-                return lines;
             }
-        }
-
-        // close BufferedReader
-        try {
-            bufferedReader.close();
-        } catch (IOException ex) {
-            logger.error("Cannot find from " + inputFile, ex);
+            br.close();
             return lines;
+
+        } catch (IOException ex) {
+            logger.error("Can't read " + inputFile.getAbsolutePath(), ex);
+            return null;
         }
-        return lines;
     }
 
     @Override
@@ -163,21 +119,19 @@ public class JavaGrepImp implements JavaGrep {
 
     @Override
     public void writeToFile(List<String> lines) throws IOException {
-        BufferedWriter writer;
         try {
-            writer = new BufferedWriter(
-                new OutputStreamWriter(new FileOutputStream(outFile))
+            BufferedWriter writer = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(new File(outFile)))
             );
+
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
+            writer.close();
+
         } catch (FileNotFoundException ex) {
             logger.error("Cannot find " + outFile, ex);
-            return;
         }
-
-        for (String line : lines) {
-            writer.write(line);
-            writer.newLine();
-        }
-
-        writer.close();
     }
 }
