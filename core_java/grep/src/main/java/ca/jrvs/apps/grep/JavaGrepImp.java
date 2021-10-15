@@ -58,6 +58,8 @@ public class JavaGrepImp implements JavaGrep {
             throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
         }
 
+        BasicConfigurator.configure();
+        
         JavaGrepImp javaGrepImp = new JavaGrepImp();
         javaGrepImp.setRegex(args[0]);
         javaGrepImp.setRootPath(args[1]);
