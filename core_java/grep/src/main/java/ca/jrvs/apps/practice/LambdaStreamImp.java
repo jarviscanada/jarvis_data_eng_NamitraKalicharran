@@ -1,5 +1,6 @@
 package ca.jrvs.apps.practice;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
@@ -60,20 +61,21 @@ public class LambdaStreamImp implements LambdaStreamExc{
 
     @Override
     public Consumer<String> getLambdaPrinter(String prefix, String suffix) {
-        // TODO Auto-generated method stub
-        return null;
+        Consumer<String> printer = (message) -> {
+            System.out.println(prefix + message + suffix);
+        };
+        return printer;
     }
 
     @Override
     public void printMessages(String[] messages, Consumer<String> printer) {
-        // TODO Auto-generated method stub
-        
+        Stream<String> messageStream = Arrays.asList(messages).stream();
+        messageStream.forEach(printer);
     }
 
     @Override
     public void printOdd(IntStream intStream, Consumer<String> printer) {
-        // TODO Auto-generated method stub
-        
+        intStream.filter(n -> !((n%2) == 0)).mapToObj(n -> ((Integer) n).toString()).forEach(printer);
     }
 
     @Override
