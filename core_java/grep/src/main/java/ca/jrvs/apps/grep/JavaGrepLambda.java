@@ -1,5 +1,4 @@
 package ca.jrvs.apps.grep;
-import java.util.List;
 import java.util.stream.Stream;
 import java.io.File;
 import java.io.IOException;

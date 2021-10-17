@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.log4j.BasicConfigurator;
@@ -75,13 +76,14 @@ public class JavaGrepLambdaImp implements JavaGrepLambda { private
 
     @Override
     public void process() throws IOException {
-        Stream<String> matchedLines;
+        BasicConfigurator.configure();
 
-        matchedLines = listFiles(rootPath).map(
-            file -> readLines(file)
-        ).flatMap(s -> s);
+        //Stream<String> matchedLines;
 
-        writeToFile(matchedLines);
+        Stream<File> fileStream = listFiles(rootPath);
+        Stream<Stream<String>> lineStream = fileStream.map(file -> readLines(file));
+        logger.debug("lineStream: " + lineStream.collect(Collectors.toList()).toString());
+        //writeToFile(matchedLines);
     }
 
     @Override
@@ -94,8 +96,10 @@ public class JavaGrepLambdaImp implements JavaGrepLambda { private
 
     @Override
     public Stream<String> readLines(File inputFile) {
+        logger.debug("input file: " + inputFile);
         try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
             Stream<String> lines = br.lines().filter(s -> containsPattern(s));
+            logger.debug("lines: " + lines.collect(Collectors.toList()).toString());
             return lines;
         } catch (IOException ex) {
             logger.error("Can't read " + inputFile.getAbsolutePath(), ex);
