@@ -2,6 +2,10 @@
 .settings
 .classpath
 .project
+.vscode
+
+*/grep/out/
+target/
 
 # Compiled class file
 *.class
@@ -16,6 +20,7 @@
 .mtj.tmp/
 
 # Package Files #
+*.lst
 *.jar
 *.war
 *.nar
