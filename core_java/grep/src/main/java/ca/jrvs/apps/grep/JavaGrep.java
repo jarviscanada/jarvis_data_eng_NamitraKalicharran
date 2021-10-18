@@ -1,5 +1,4 @@
 package ca.jrvs.apps.grep;
-import java.util.Collection;
 import java.util.List;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +26,7 @@ interface JavaGrep {
      * @return lines
      * @throws IllegalArgumentException if a given inputFile is not a file
      */
-    Collection<String> readLines(File inputFile);
+    List<String> readLines(File inputFile);
 
     /**
      * check i fa line contains the regex pattern passed (passed by the user)
