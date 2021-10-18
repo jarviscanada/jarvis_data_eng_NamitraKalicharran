@@ -3,6 +3,7 @@
 .classpath
 .project
 .vscode
+.factorypath
 
 */grep/out/
 target/
