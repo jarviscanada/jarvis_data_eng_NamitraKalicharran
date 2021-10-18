@@ -19,8 +19,8 @@ java -jar target/grep-1.0-SNAPSHOT.jar ${regex_pattern} ${src_dir} ./out/${outfi
 ```
 2. Using the Docker image:
 ```bash
-docker pull julngyn/grep
-docker run --rm -v `pwd`/data:/data -v `pwd`/out:/out julngyn/grep ${regex_pattern} ${src_dir} /out/${outfile}
+docker pull namitrakali/grep
+docker run --rm -v `pwd`/data:/data -v `pwd`/out:/out namitrakali/grep ${regex_pattern} ${src_dir} /out/${outfile}
 ```
 Once the program is run, view the file created using:
 ```bash
