@@ -9,7 +9,7 @@ This project includes a Java Database Connectivity (JDBC) application that conne
 
 # Implementaiton
 ## ER Diagram
-![ER Diagram](./assets/er_diagram.png)
+![ER Diagram](./assets/ER_diagram.png)
 
 ## Design Patterns
 ### Data Access Object (DAO)
