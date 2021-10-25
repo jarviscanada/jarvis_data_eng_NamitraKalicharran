@@ -57,7 +57,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     public void writeToFile(List<String> lines) throws IOException {
         try (BufferedWriter br = new BufferedWriter(new FileWriter(outFile))) {
             Stream<String> lineStream = lines.stream();
-            lineStream.forEach(line ->{
+            lineStream.forEach(line -> {
                 try {
                     br.write(line);
                     br.newLine();

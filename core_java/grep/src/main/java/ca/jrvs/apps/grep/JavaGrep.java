@@ -26,7 +26,7 @@ interface JavaGrep {
      * @return lines
      * @throws IllegalArgumentException if a given inputFile is not a file
      */
-    List<String> readLines(File inputFile);
+    <T> T readLines(File inputFile);
 
     /**
      * check i fa line contains the regex pattern passed (passed by the user)
