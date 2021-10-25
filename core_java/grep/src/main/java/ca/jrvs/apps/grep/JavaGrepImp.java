@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class JavaGrepImp implements JavaGrep {
-    final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
+    final static Logger logger = LoggerFactory.getLogger(JavaGrep.class);
 
     public String regex;
     public String rootPath;
@@ -68,7 +68,7 @@ public class JavaGrepImp implements JavaGrep {
         try {
             javaGrepImp.process();
         } catch (Exception ex) {
-            javaGrepImp.logger.error("Error: Unable to process", ex);
+            logger.error("Error: Unable to process", ex);
         }
     }
 

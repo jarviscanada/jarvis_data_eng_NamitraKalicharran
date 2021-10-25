@@ -29,7 +29,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         try {
             javaGrepLambdaImp.process();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Error Running JavaGrep:", e);
         }
     }
 
