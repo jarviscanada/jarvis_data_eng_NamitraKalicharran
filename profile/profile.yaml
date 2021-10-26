@@ -51,6 +51,12 @@ jarvis_projects:
     # Please include the following keywords: CentOS, Bash/Shell, docker, RDBMS/SQL/Postgresql, crontab, data analytics
     description: "Implemented cluster monitoring program for the Linux Cluster Administration team which was developed in Bash and tested on CentOS 7 virtual machines. All the scripts were automated using crontab and the data was stored in a Docker containerized PostgresQL database which could later be queried for further data analytics."
 
+  - name: "Core Java Projects"
+    git_url: "/core_java"
+    description:
+      - "JDBC App: Designed a Java Grep App made to replicate the Linux grep command, searching files in a directory and matching strings to within the files. There are two different implementations, one using BufferedReader one using Java's Stream API. This project incorporates Maven, Streams, Regex and Lambda Functions and is unit tested using JUnit. Lastly, the application containerized using Docker."
+      - "Grep App: Developed a Java Database Connectivity (JDBC) application that connects to a Docker containerized PostgreSQL database. This application allows users to perform CRUD operations (create, read, update, delete) onto a database. Implemented using Java, PostgreSQL, Docker and Maven."
+
 # List of personal or academic projects
 # Feel free to add more projects
 # Please read the project description guideline carefully. Make sure you follow the simplified SDLC pattern. (t.ly/NlXQ)
@@ -63,7 +69,7 @@ highlighted_projects:
     description: "Developed a diet tracking progressive web app, using React, MongoDB and FastAPI, that helps users count the carbon footprint of each meal that they have eaten. The progressive web app was deployed on AWS Lamda and won best pitch at ClimateHack!"
   
   - name: "Stock Price Prediction"
-    git_url: "github.com/NamitraKali/Stock-Price-Prediction"
+    git_url: "https://github.com/NamitraKali/Stock-Price-Prediction"
     description: "Designed and trained a Recurrent Neural Network in Keras to perform Supervised Regression to predict stock prices using technical indicators. Engineered data using Pandas and Numpy to calculate various technical indicators. Created train and testing splits to locally test model performance using scikit-learn."
 
 #List of professional experience
@@ -92,6 +98,7 @@ education:
     awards_achievements: 
       - "Bioinformatics Minor"
       - "Computer Science Minor"
+      - "Honour Roll: "
       - "GPA: 3.7"
 
 #Optional section
