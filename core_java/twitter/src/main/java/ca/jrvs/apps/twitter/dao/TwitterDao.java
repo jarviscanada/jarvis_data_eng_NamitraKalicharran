@@ -3,7 +3,7 @@ package ca.jrvs.apps.twitter.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
-import ca.jrvs.apps.twitter.dao.model.Tweet;
+import ca.jrvs.apps.twitter.model.Tweet;
 
 public class TwitterDao implements CrdDao<Tweet, String> {
     // URI constants

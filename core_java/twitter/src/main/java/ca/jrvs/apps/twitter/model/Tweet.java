@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter.dao.model;
+package ca.jrvs.apps.twitter.model;
 
 public class Tweet {
     String created_at;
