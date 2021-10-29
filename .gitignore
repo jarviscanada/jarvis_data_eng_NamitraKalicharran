@@ -11,6 +11,9 @@ target/
 # Compiled class file
 *.class
 
+# Environment variable Files
+*.env
+
 # Log file
 *.log
 
