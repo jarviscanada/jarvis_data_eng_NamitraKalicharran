@@ -13,11 +13,19 @@ import org.apache.http.util.EntityUtils;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class twitterApiTest {
-    private static String CONSUMER_KEY = System.getenv("consumerKey");
-    private static String CONSUMER_SECRET = System.getenv("consumerSecret");
-    private static String ACCESS_TOKEN = System.getenv("accessToken");
-    private static String TOKEN_SECRET = System.getenv("tokenSecret");
+
+    // From package to read .env files
+    private static Dotenv dotenv = Dotenv.configure()
+                                         .directory("core_java\\twitter\\.env")
+                                         .load();
+
+    private static String CONSUMER_KEY = dotenv.get("consumerKey");
+    private static String CONSUMER_SECRET = dotenv.get("consumerSecret");
+    private static String ACCESS_TOKEN = dotenv.get("accessToken");
+    private static String TOKEN_SECRET = dotenv.get("tokenSecret");
 
     public static void main(String[] args) throws Exception {
         OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,
