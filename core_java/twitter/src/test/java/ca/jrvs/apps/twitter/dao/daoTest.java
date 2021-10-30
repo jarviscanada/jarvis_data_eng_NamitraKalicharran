@@ -1,5 +1,5 @@
 package ca.jrvs.apps.twitter.dao;
 
-interface HttpHelper {
+public class daoTest {
     
 }

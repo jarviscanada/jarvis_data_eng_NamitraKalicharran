@@ -1,5 +1,5 @@
 package ca.jrvs.apps.twitter;
 
-interface TwitterDao {
+public class serviceTest {
     
 }
