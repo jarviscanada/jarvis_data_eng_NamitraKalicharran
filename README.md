@@ -1,10 +1,10 @@
 # Namitra Kalicharran . Jarvis Consulting
 
-My name is Namitra Kalicharran. I am a Data Engineer at Jarvis Consulting who studied at the University of Waterloo, where I majored in Science while acquiring minors in Bioinformatics and Computer Science. I have a strong passion for developing novel data infrastructures, as demonstrated by my previous experience developing a variety of data pipelines for research labs in both Canada and the US during my undergrad. I am currently working at Jarvis to expand my skills in Data Engineering while working on exciting projects using technologies such as Docker, Java, and Springboot within fast-paced agile environments. I am eager, driven, results-oriented; lastly, I'm passionate about continuous learning and hope to impact your team.
+My name is Namitra Kalicharran. I am a Software and Data Engineer at Jarvis Consulting who studied at the University of Waterloo, where I majored in Science while acquiring minors in Bioinformatics and Computer Science. I have a strong passion for developing novel data infrastructures, as demonstrated by my previous experience developing a variety of data pipelines for research labs in both Canada and the US during my undergrad. I am currently working at Jarvis to expand my skills in Software and Data Engineering while working on exciting projects using technologies such as Docker, Java, and Springboot within fast-paced agile environments. I am eager, driven, results-oriented; lastly, I'm passionate about continuous learning and hope to impact your team.
 
 ## Skills
 
-**Proficient:** Python, PyTorch, Pandas, Numpy, JavaScript, Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, Linux/Bash, Python, PyTorch, Pandas, Numpy, JavaScript, RDBMS/SQL, Agile/Scrum, Git
 
 **Competent:** PySpark, Docker, TensorFlow, MongoDB, Scikit-Learn, Flask, FastAPI, NodeJS, ExpressJS, React
 
