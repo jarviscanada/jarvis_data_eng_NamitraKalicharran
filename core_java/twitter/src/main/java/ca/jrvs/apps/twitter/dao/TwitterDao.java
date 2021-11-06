@@ -68,7 +68,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         return tweet;
     }
 
-    public URI makeUri(HttpMethod method, String status) {
+    public URI makeUri(HttpMethod method, String id, Tweet tweet) {
         PercentEscaper percentEscaper = new PercentEscaper("", false);
         
         if (method == HttpMethod.POST) {
@@ -76,22 +76,24 @@ public class TwitterDao implements CrdDao<Tweet, String> {
                 API_BASE_URI +
                 POST_PATH +
                 QUERY_SYM +
-                percentEscaper.escape("status=") +
-                percentEscaper.escape(status)
+                percentEscaper.escape("status") +
+                EQUAL +
+                percentEscaper.escape(id)
             );
         } else if (method == HttpMethod.GET) {
             return URI.create(
                 API_BASE_URI +
                 SHOW_PATH +
                 QUERY_SYM +
-                percentEscaper.escape("id=") +
-                percentEscaper.escape(status)
+                percentEscaper.escape("id") +
+                EQUAL +
+                percentEscaper.escape(id)
             );
         } else if (method == HttpMethod.DELETE) {
             return URI.create(
                 API_BASE_URI +
                 DELETE_PATH +
-                "/" + percentEscaper.escape(status) +
+                "/" + percentEscaper.escape(id) +
                 percentEscaper.escape(".json")
             );
         } else {
@@ -102,11 +104,11 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     @Override
     public Tweet create(Tweet entity) {
         URI uri;
-        uri = makeUri(HttpMethod.POST, entity.getText());
+        uri = makeUri(HttpMethod.POST, null, entity);
 
         try {
             HttpResponse response = httpHelper.httpPost(uri);
-            return parseResponse(response, 200);
+            return parseResponse(response, HTTP_OK);
         } catch (OAuthException e) {
             throw new RuntimeException("Unable to fulfill POST request", e);
         }
@@ -114,15 +116,20 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     @Override
     public Tweet findById(String id) {
-        URI uri = makeUri(HttpMethod.GET, id);
+        URI uri = makeUri(HttpMethod.GET, id, null);
         HttpResponse response = httpHelper.httpGet(uri);
-        return parseResponse(response, 200);
+        return parseResponse(response, HTTP_OK);
     }
 
     @Override
     public Tweet deleteById(String id) {
-        // TODO Auto-generated method stub
-        return null;
+        URI uri = makeUri(HttpMethod.DELETE, id, null);
+        try {
+            HttpResponse response = httpHelper.httpPost(uri);
+            return parseResponse(response, HTTP_OK);
+        } catch (OAuthException e) {
+            throw new RuntimeException("Unable to fulfill POST request", e);
+        }
     }
     
 }
