@@ -56,4 +56,14 @@ public class Tweet {
     public Coordinates getCoordinates () {
         return coordinates;
     }
+
+    @JsonProperty("text")
+    public void setText(String tweet_text) {
+        this.text = tweet_text;
+    }
+
+    @JsonProperty("coordinates")
+    public void setCoordinates(Coordinates coord) {
+        this.coordinates = coord;
+    }
 }

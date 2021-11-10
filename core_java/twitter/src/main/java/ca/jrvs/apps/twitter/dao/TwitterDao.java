@@ -76,9 +76,17 @@ public class TwitterDao implements CrdDao<Tweet, String> {
                 API_BASE_URI +
                 POST_PATH +
                 QUERY_SYM +
-                percentEscaper.escape("status") +
+                "status" +
                 EQUAL +
-                percentEscaper.escape(id)
+                percentEscaper.escape(tweet.getText()) +
+                AMPERSAND +
+                "long" +
+                EQUAL +
+                String.valueOf(tweet.getCoordinates().getCoordinates()[0]) +
+                AMPERSAND +
+                "lat" +
+                EQUAL +
+                String.valueOf(tweet.getCoordinates().getCoordinates()[1])
             );
         } else if (method == HttpMethod.GET) {
             return URI.create(

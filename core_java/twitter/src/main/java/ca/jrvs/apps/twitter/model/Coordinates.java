@@ -20,8 +20,18 @@ public class Coordinates {
         return coordinates;
     }
 
+    @JsonProperty("coordinates")
+    public void setCoordinates(float[] coordArray) {
+        this.coordinates = coordArray;
+    }
+
     @JsonProperty("type")
     public String getType() {
         return type;
+    }
+
+    @JsonProperty("type")
+    public void setType(String type) {
+        this.type = type;
     }
 }
