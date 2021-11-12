@@ -9,7 +9,7 @@ import org.apache.http.util.EntityUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-public class httpHelperTest {
+public class httpHelperUnitTest {
     HttpHelper httpHelper; 
 
     @Before
