@@ -2,7 +2,14 @@ package ca.jrvs.practice.codingChallenge;
 
 import java.util.ArrayList;
 
+// Ticket: https://www.notion.so/jarvisdev/Merge-Sorted-Array-b2c289da45264469872dfdd6766d9b07
 public class MergeSortedArray {
+    /**
+     * Big-O: O(n+m)
+     * Justification: This algorithm iterates over each element of nums1 and nums 2 only once
+     * then it copies the sorted items into nums1 again creating a total runtime cost of O(2(n+m)) 
+     * which still simplifies down to O(n+m).
+     */
     public void solution (int[] nums1, int m, int[] nums2, int n) {        
         ArrayList<Integer> result = new ArrayList<Integer>();
         int nId = 0;
