@@ -42,4 +42,4 @@ namitrakali/twitter post|show|delete [options]
 
 # Design
 ## UML diagram
-![UML Diagram](./assets/UML_diagram.png)
+![UML Diagram](./assets/UML_Diagram.png)
