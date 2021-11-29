@@ -56,6 +56,7 @@ jarvis_projects:
     description:
       - "JDBC App: Designed a Java Grep App made to replicate the Linux grep command, searching files in a directory and matching strings to within the files. There are two different implementations, one using BufferedReader one using Java's Stream API. This project incorporates Maven, Streams, Regex and Lambda Functions and is unit tested using JUnit. Lastly, the application containerized using Docker."
       - "Grep App: Developed a Java Database Connectivity (JDBC) application that connects to a Docker containerized PostgreSQL database. This application allows users to perform CRUD operations (create, read, update, delete) onto a database. Implemented using Java, PostgreSQL, Docker and Maven."
+      - "Twitter App: Developed a Twitter CLI application that allows users to manipulate their Twitter feed by performing CRD operations (create, read, delete). The application achieves this by submitting and parsing requests from the Official Twitter REST API. It is implemented using Java, Spring, Docker, and Maven and tested using JUnit and Mockito."
 
 # List of personal or academic projects
 # Feel free to add more projects
