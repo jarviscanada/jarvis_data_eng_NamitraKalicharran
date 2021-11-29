@@ -26,3 +26,20 @@ To install program using Maven:
 mvn clean package -Dmaven.test.skip=true
 java -jar target/twitter-1.0-SNAPSHOT.jar post|show|delete [options]
 ```
+
+## 2. Docker
+Run the program using Docker:
+```
+docker pull namitrakali/twitter
+
+docker run --rm \
+-e consumerKey=YOUR_KEY \
+-e consumerSecret=YOUR_KEY \
+-e accessToken=YOUR_TOKEN \
+-e tokenSecret=YOUR_TOKEN \
+namitrakali/twitter post|show|delete [options]
+```
+
+# Design
+## UML diagram
+![UML_diagram](assets/UML_diagram.png)
