@@ -1,9 +1,19 @@
 package ca.jrvs.apps.twitter.dao;
 
+import java.io.IOException;
+import java.net.URI;
+
+import com.google.gdata.util.common.base.PercentEscaper;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.util.JsonUtil;
+import oauth.signpost.exception.OAuthException;
 
 public class TwitterDao implements CrdDao<Tweet, String> {
     // URI constants
@@ -25,22 +35,109 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     @Autowired
     public TwitterDao(HttpHelper httpHelper) { this.httpHelper = httpHelper; }
 
+    private Tweet parseResponse(HttpResponse response, Integer statusCode) {
+        Tweet tweet;
+
+        int status = response.getStatusLine().getStatusCode();
+        if (status != statusCode) {
+            try {
+                System.out.println(EntityUtils.toString(response.getEntity()));
+            } catch (IOException e) {
+                System.out.println("Response has no entity");
+            }
+            throw new RuntimeException("Unexpected status code: " + status);
+        }
+
+        if (response.getEntity() != null) {
+            throw new RuntimeException("Empty response body");
+        }
+
+        String jsonStr;
+        try {
+            jsonStr = EntityUtils.toString(response.getEntity());
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to convert Entity to String", e);
+        }
+
+        try {
+            tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to convert JSON to object", e);
+        }
+
+        return tweet;
+    }
+
+    public URI makeUri(HttpMethod method, String id, Tweet tweet) {
+        PercentEscaper percentEscaper = new PercentEscaper("", false);
+        
+        if (method == HttpMethod.POST) {
+            return URI.create(
+                API_BASE_URI +
+                POST_PATH +
+                QUERY_SYM +
+                "status" +
+                EQUAL +
+                percentEscaper.escape(tweet.getText()) +
+                AMPERSAND +
+                "long" +
+                EQUAL +
+                String.valueOf(tweet.getCoordinates().getCoordinates()[0]) +
+                AMPERSAND +
+                "lat" +
+                EQUAL +
+                String.valueOf(tweet.getCoordinates().getCoordinates()[1])
+            );
+        } else if (method == HttpMethod.GET) {
+            return URI.create(
+                API_BASE_URI +
+                SHOW_PATH +
+                QUERY_SYM +
+                percentEscaper.escape("id") +
+                EQUAL +
+                percentEscaper.escape(id)
+            );
+        } else if (method == HttpMethod.DELETE) {
+            return URI.create(
+                API_BASE_URI +
+                DELETE_PATH +
+                "/" + percentEscaper.escape(id) +
+                percentEscaper.escape(".json")
+            );
+        } else {
+            throw new IllegalArgumentException("Invalid CRUD method");
+        }
+    }
+
     @Override
     public Tweet create(Tweet entity) {
-        // TODO Auto-generated method stub
-        return null;
+        URI uri;
+        uri = makeUri(HttpMethod.POST, null, entity);
+
+        try {
+            HttpResponse response = httpHelper.httpPost(uri);
+            return parseResponse(response, HTTP_OK);
+        } catch (OAuthException e) {
+            throw new RuntimeException("Unable to fulfill POST request", e);
+        }
     }
 
     @Override
     public Tweet findById(String id) {
-        // TODO Auto-generated method stub
-        return null;
+        URI uri = makeUri(HttpMethod.GET, id, null);
+        HttpResponse response = httpHelper.httpGet(uri);
+        return parseResponse(response, HTTP_OK);
     }
 
     @Override
     public Tweet deleteById(String id) {
-        // TODO Auto-generated method stub
-        return null;
+        URI uri = makeUri(HttpMethod.DELETE, id, null);
+        try {
+            HttpResponse response = httpHelper.httpPost(uri);
+            return parseResponse(response, HTTP_OK);
+        } catch (OAuthException e) {
+            throw new RuntimeException("Unable to fulfill POST request", e);
+        }
     }
     
 }
