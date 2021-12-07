@@ -36,6 +36,8 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
         List<IexQuote> iexQuotes = new ArrayList<IexQuote>();
         ObjectMapper objectMapper = new ObjectMapper();
 
+
+
         return iexQuotes;
     }
 
