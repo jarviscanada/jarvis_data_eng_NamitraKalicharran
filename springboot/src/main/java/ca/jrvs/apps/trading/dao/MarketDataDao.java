@@ -8,6 +8,8 @@ import java.util.Optional;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.apache.http.conn.HttpClientConnectionManager;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,19 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
             MarketDataConfig marketDataConfig) {
         this.httpClientConnectionManager = httpClientConnectionManager;
         IEX_BATCH_URL = marketDataConfig.getHost() + IEX_BATCH_PATH + marketDataConfig.getToken();
+    }
+
+    private CloseableHttpClient getHttpClient() {
+        return HttpClients.custom()
+            .setConnectionManager(httpClientConnectionManager)
+            //prevent connectionManager shutdown when calling httpClient.close()
+            .setConnectionManagerShared(true)
+            .build();
+    }
+
+    private Optional<String> executeHttpGet(String url) {
+        // TODO
+        return null;
     }
 
     @Override
