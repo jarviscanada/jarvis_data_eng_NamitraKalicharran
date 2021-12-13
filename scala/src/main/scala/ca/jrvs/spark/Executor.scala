@@ -6,7 +6,11 @@ import ca.jrvs.spark.sessionMaker
 
 object Executor {
   // Create SparkSession with SQL Dataframes and Hive configuration
-  var spark: SparkSession = sessionMaker.getSparkSession
+  var spark: SparkSession = _
+
+  def main(): Unit = {
+    spark = sessionMaker.getSparkSession
+  }
 
   def job(spark: SparkSession, src: String, backup: String) = {
     import spark.sql
