@@ -14,7 +14,11 @@ object Executor {
     val df1 = sql("SELECT * FROM " + src + " USING hive")
     val df2 = sql("SELECT * FROM " + backup + " USING hive")
 
-    val result = df1.exceptAll(df2)
+    // Get rows in backup that aren't in src
+    val unarchived = df2.except(df1)
+
+    // update backup to have the only the rows in src
+    val df2 = df1.union(df2).except(unarchived)
 
   }
 
