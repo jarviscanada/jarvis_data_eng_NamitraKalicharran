@@ -6,21 +6,47 @@
   <name>scalaSpark</name>
    <properties>
     <encoding>UTF-8</encoding>
-    <scala.version>2.11.6</scala.version>
+    <scala.version>2.11.12</scala.version>
   </properties>
 
-  <dependencies>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+      </dependency>
+  
     <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.11.6</version>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.11</artifactId>
+      <version>2.4.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.11</artifactId>
+      <version>2.4.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-hive_2.11</artifactId>
+      <version>2.4.8</version>
     </dependency>
 
     <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>2.11.12</version>
+    </dependency>
+    <dependency>
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_2.11</artifactId>
-      <version>2.2.5</version>
+      <version>3.0.0-M16-SNAP2</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.scalatest</groupId>
+      <artifactId>scalatest-junit_2.11</artifactId>
+      <version>3.0.0-SNAP13</version>
     </dependency>
   </dependencies>
 
@@ -36,7 +62,7 @@
             </descriptorRefs>
             <archive>
                 <manifest>
-                    <mainClass>ca.jrvs.App</mainClass>
+                    <mainClass>ca.jrvs.CLIApp</mainClass>
                 </manifest>
             </archive>
         </configuration>
