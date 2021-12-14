@@ -2,14 +2,14 @@ package ca.jrvs.spark
 
 import org.apache.spark.sql.SparkSession
 
-import ca.jrvs.spark.sessionMaker
-
 object Executor {
+
   // Create SparkSession with SQL Dataframes and Hive configuration
   var spark: SparkSession = _
 
-  def main(): Unit = {
+  def apply(src: String, backup: String): Unit = {
     spark = sessionMaker.getSparkSession
+    job(spark, src, backup)
   }
 
   def job(spark: SparkSession, src: String, backup: String) = {
@@ -22,12 +22,7 @@ object Executor {
     val unarchived = df2.except(df1)
 
     // update backup to have the only the rows in src
-    val df2 = df1.union(df2).except(unarchived)
+    val result = df1.union(df2).except(unarchived)
 
-  }
-
-  def main(src: String, backup: String): Unit = {
-    // Run Spark manipulations
-    job(spark, src, backup)
   }
 }

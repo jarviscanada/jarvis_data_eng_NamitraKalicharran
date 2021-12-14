@@ -1,16 +1,15 @@
 package ca.jrvs
 
-import org.apache.log4j.Logger
-import org.apache.spark.sql.SparkSession
-import ca.jrvs.ca.spark.Executor
-import ca.jrvs.spark.sessionMaker
+import ca.jrvs.spark.Executor
 
 object CLIApp {
   def main(args: Array[String]): Unit = {
     if (args.length != 2) {
       throw new IllegalArgumentException("USAGE: scalaSpark src backup")
     }
+    val srcFile = args(0)
+    val backupFile = args(1)
 
-    Executor(args[0], args[1])
+    Executor(srcFile, backupFile)
   }
 }
